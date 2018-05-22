@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.matheusfialho.sqlite_comtrocadetelas.MainActivity">
+    <item
+        android:id="@+id/itemCadastrar"
+        android:icon="@android:drawable/ic_menu_add"
+        android:orderInCategory="100"
+        android:title="Cadastrar" />
+    <item
+        android:id="@+id/itemBuscar"
+        android:icon="@android:drawable/ic_menu_search"
+        android:orderInCategory="101"
+        android:title="Buscar" />
+    <item
+        android:id="@+id/itemEditar"
+        android:orderInCategory="102"
+        android:title="Editar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/itemDeletar"
+        android:orderInCategory="103"
+        android:title="Deletar" />
+</menu>
