@@ -39,8 +39,9 @@ public class BuscarCliente extends AppCompatActivity {
                 listaClientes = dao.retornarTodos();
 
                 if (listaClientes != null && !listaClientes.isEmpty()) {
+                    Log.d("Clientes", " ");
                     for (int i = 0; i < listaClientes.size(); i++) {
-                        Log.d("Clientes", listaClientes.get(i).getNome());
+                        Log.d("Clientes", "Nome: "+listaClientes.get(i).getNome()+"  ID: "+listaClientes.get(i).getId());
                     }
                 }
                 txtConsultarNome.setText("");

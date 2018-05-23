@@ -23,6 +23,8 @@
         android:id="@+id/txtConsultarIdDel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Digite o ID"

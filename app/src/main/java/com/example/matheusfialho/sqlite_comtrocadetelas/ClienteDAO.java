@@ -53,14 +53,6 @@ public class ClienteDAO {
         else
             resultado = gw.getDatabase().insert(TABLE_CLIENTES, null, cv) > 0;
         return resultado;
-
-        /*resultado = db.insert(TABLE_CLIENTES, null, cv);
-        resultado = gw.getDatabase().insert(TABLE_CLIENTES, null, cv);
-        if (resultado == -1)
-        //    return "Erro ao inserir registro";
-        else
-            return "Registro Inserido com sucesso";
-        */
     }
 
     public List<Cliente> retornarTodos(){
@@ -117,8 +109,9 @@ public class ClienteDAO {
             Log.d("Clientes", "Não existe nenhum registro de "+nomeCliente);
         }
         if (listClientes != null && !listClientes.isEmpty()) {
+            Log.d("Clientes", " ");
             for (int i = 0; i < listClientes.size(); i++) {
-                Log.d("Clientes", listClientes.get(i).getNome());
+                Log.d("Clientes", "Nome: "+listClientes.get(i).getNome()+"  ID: "+listClientes.get(i).getId());
             }
         }
         return listClientes;
@@ -151,8 +144,9 @@ public class ClienteDAO {
             Log.d("Clientes", "Não existe nenhum registro de "+idCliente);
         }
         if (listClientes != null && !listClientes.isEmpty()) {
+            Log.d("Clientes", " ");
             for (int i = 0; i < listClientes.size(); i++) {
-                Log.d("Clientes", listClientes.get(i).getNome());
+                Log.d("Clientes", "Nome: "+listClientes.get(i).getNome()+"  ID: "+listClientes.get(i).getId());
             }
         }
         return listClientes;
