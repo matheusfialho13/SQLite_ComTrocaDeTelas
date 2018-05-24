@@ -30,4 +30,9 @@ public class Cliente implements Serializable {
     public int hashCode(){
         return this.id;
     }
+
+    public String toString() {
+        return " ID: " + id + "  Cliente: " + nome + "  Idade: " +
+                idade;
+    }
 }
