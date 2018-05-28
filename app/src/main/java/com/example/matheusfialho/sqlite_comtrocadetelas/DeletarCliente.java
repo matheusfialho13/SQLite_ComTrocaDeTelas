@@ -127,13 +127,13 @@ public class DeletarCliente extends AppCompatActivity {
     }
 
     private void tela02Visivel(){
-        findViewById(R.id.includedeletar01).setVisibility(View.INVISIBLE);
-        findViewById(R.id.includedeletar02).setVisibility(View.VISIBLE);
+        findViewById(R.id.includedeletarconsulta).setVisibility(View.INVISIBLE);
+        findViewById(R.id.includedeletardados).setVisibility(View.VISIBLE);
     }
 
     private void tela01Visivel(){
-        findViewById(R.id.includedeletar01).setVisibility(View.VISIBLE);
-        findViewById(R.id.includedeletar02).setVisibility(View.INVISIBLE);
+        findViewById(R.id.includedeletarconsulta).setVisibility(View.VISIBLE);
+        findViewById(R.id.includedeletardados).setVisibility(View.INVISIBLE);
     }
 
     private void limpaDados(){

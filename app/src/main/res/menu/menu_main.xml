@@ -21,4 +21,8 @@
         android:id="@+id/itemDeletar"
         android:orderInCategory="103"
         android:title="Deletar" />
+    <item
+        android:id="@+id/itemListar"
+        android:orderInCategory="104"
+        android:title="Listar Clientes" />
 </menu>

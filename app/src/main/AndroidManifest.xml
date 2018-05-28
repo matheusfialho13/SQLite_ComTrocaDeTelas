@@ -19,35 +19,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".CadastrarCliente"
+        <activity
+            android:name=".CadastrarCliente"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-        <activity android:name=".BuscarCliente"
+        <activity
+            android:name=".BuscarCliente"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-        <activity android:name=".EditarCliente"
+        <activity
+            android:name=".EditarClienteConsulta"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-        <activity android:name=".DeletarCliente"
+        <activity
+            android:name=".DeletarCliente"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
+        <activity
+            android:name=".ListarTodosClientes"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".InformacoesClientes"></activity>
+        <activity android:name=".EditarClienteDados"></activity>
+        <activity android:name=".DeletarClienteDados"></activity>
     </application>
 
 </manifest>

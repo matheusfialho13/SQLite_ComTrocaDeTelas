@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DeletarCliente">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <include
-        android:id="@+id/includedeletar01"
-        layout="@layout/tela_deletar01"
+        android:id="@+id/includedeletarconsulta"
+        layout="@layout/tela_deletar_consulta"
         android:visibility="visible"/>
 
     <include
-        android:id="@+id/includedeletar02"
-        layout="@layout/tela_deletar02"
+        android:id="@+id/includedeletardados"
+        layout="@layout/tela_deletar_dados"
         android:visibility="invisible"/>
 
 </android.support.constraint.ConstraintLayout>

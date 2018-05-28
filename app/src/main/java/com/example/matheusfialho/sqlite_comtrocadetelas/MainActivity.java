@@ -54,11 +54,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.itemEditar){
-            trocaTela(getApplicationContext(), EditarCliente.class);
+            trocaTela(getApplicationContext(), EditarClienteConsulta.class);
             return true;
         }
         else if (id == R.id.itemDeletar){
             trocaTela(getApplicationContext(), DeletarCliente.class);
+            return true;
+        }
+        else if (id == R.id.itemListar){
+            trocaTela(getApplicationContext(), ListarTodosClientes.class);
             return true;
         }
 

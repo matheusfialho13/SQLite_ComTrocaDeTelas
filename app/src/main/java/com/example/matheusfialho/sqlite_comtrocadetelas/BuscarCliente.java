@@ -24,19 +24,9 @@ public class BuscarCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.tela_buscar_cliente);
-        setContentView(R.layout.lista_clientes);
-
-        ListView listaDeClientes = (ListView) findViewById(R.id.lista);
-        List<Cliente> listaClientes = new ArrayList<>();
-        dao = new ClienteDAO(getBaseContext());
-        listaClientes = dao.retornarTodos();
-        ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(this,
-                android.R.layout.simple_list_item_1, listaClientes);
-        listaDeClientes.setAdapter(adapter);
+        setContentView(R.layout.tela_buscar_cliente);
 
 
-        /*
         //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
         txtConsultarNome = (EditText) findViewById(R.id.txtConsultarNome);
         butConsultarTodos = (Button) findViewById(R.id.butConsultarTodos);
@@ -70,6 +60,6 @@ public class BuscarCliente extends AppCompatActivity {
                 txtConsultarNome.setText("");
             }
         });
-        */
+
     }
 }

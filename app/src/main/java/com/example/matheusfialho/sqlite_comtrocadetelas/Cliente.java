@@ -9,7 +9,7 @@ public class Cliente implements Serializable {
     private String nome;
     private int idade;
 
-    public Cliente (Context context){ }
+    public Cliente (){ }
 
     public Cliente(int id, String nome, int idade) {
         this.id = id;
