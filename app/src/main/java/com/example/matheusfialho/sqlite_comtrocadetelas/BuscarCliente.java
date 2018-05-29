@@ -1,13 +1,12 @@
 package com.example.matheusfialho.sqlite_comtrocadetelas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +14,8 @@ import java.util.List;
 public class BuscarCliente extends AppCompatActivity {
 
     private ClienteDAO dao;
+    private List<Cliente> listaClientes;
+    AdapterPersonalizado adapter;
 
     /*COMPONENTES DA TELA*/
     EditText txtConsultarNome;
@@ -48,6 +49,9 @@ public class BuscarCliente extends AppCompatActivity {
                     }
                 }
                 txtConsultarNome.setText("");
+
+                Intent intent = new Intent(getApplicationContext(), ListarTodosClientes.class);
+                startActivity(intent);
             }
         });
 
@@ -58,6 +62,10 @@ public class BuscarCliente extends AppCompatActivity {
                 dao = new ClienteDAO(getBaseContext());
                 dao.retornaConsulta(nome);
                 txtConsultarNome.setText("");
+
+                Intent intent = new Intent(getApplicationContext(), ListarBuscaClientes.class);
+                    intent.putExtra("string", nome);
+                startActivity(intent);
             }
         });
 

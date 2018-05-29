@@ -56,7 +56,7 @@
         </activity>
         <activity android:name=".InformacoesClientes"></activity>
         <activity android:name=".EditarClienteDados"></activity>
-        <activity android:name=".DeletarClienteDados"></activity>
+        <activity android:name=".ListarBuscaClientes"></activity>
     </application>
 
 </manifest>

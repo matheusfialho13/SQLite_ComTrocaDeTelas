@@ -70,7 +70,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void trocaTela(Context context, Class classe){
+        trocaTela(context, classe, null, null, null);
+    }
+
+    public void trocaTela(Context context, Class classe, Boolean bool, Cliente cliente, String nome){
         Intent intent = new Intent(context, classe);
+        if (bool != null) {
+            intent.putExtra("bool", bool);
+        }
+        if (cliente != null){
+            intent.putExtra("cliente", cliente);
+        }
+        if (nome != null){
+            intent.putExtra("string", nome);
+        }
         startActivity(intent);
     }
 

@@ -1,18 +1,16 @@
 package com.example.matheusfialho.sqlite_comtrocadetelas;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarTodosClientes extends AppCompatActivity {
+public class ListarBuscaClientes extends AppCompatActivity {
 
     private ClienteDAO dao;
     private List<Cliente> listaClientes;
@@ -22,10 +20,12 @@ public class ListarTodosClientes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_clientes);
 
+        String nome = (String) getIntent().getExtras().getString("string");
+
         final ListView listViewClientes = (ListView) findViewById(R.id.lista);
         dao = new ClienteDAO(getBaseContext());
         listaClientes = new ArrayList<>();
-        listaClientes = dao.retornarTodos();
+        listaClientes = dao.retornaConsulta(nome);
 
         adapter = new AdapterPersonalizado(listaClientes, this);
         listViewClientes.setAdapter(adapter);
@@ -39,19 +39,5 @@ public class ListarTodosClientes extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        /*
-        ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(this, android.R.layout.simple_list_item_1, listaClientes);
-
-        adapter = new AdapterPersonalizado(listaClientes, this);
-         */
     }
-
-    /*
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
-    */
 }
