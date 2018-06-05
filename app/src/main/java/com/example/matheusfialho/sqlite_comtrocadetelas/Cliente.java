@@ -6,20 +6,27 @@ import java.io.Serializable;
 
 public class Cliente implements Serializable {
     private int id;
-    private String nome;
     private int idade;
+    private String nome;
+    private byte[] foto;
 
     public Cliente (){ }
 
-    public Cliente(int id, String nome, int idade) {
+    public Cliente(int id, String nome, int idade, byte[] foto) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
+        this.foto = foto;
+
     }
 
-    public int getId(){ return this.id; }
-    public String getNome(){ return this.nome; }
-    public int getIdade(){ return this.idade; }
+    public int getId(){ return id; }
+    public String getNome(){ return nome; }
+    public int getIdade(){ return idade; }
+    public byte[] getFoto() { return foto; }
+
+    public void setFoto(byte[] foto) { this.foto = foto; }
+
 
     @Override
     public boolean equals(Object o){
@@ -35,4 +42,5 @@ public class Cliente implements Serializable {
         return " ID: " + id + "  Cliente: " + nome + "  Idade: " +
                 idade;
     }
+
 }

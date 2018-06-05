@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.matheusfialho.sqlite_comtrocadetelas">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,49 +13,53 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".ListarTodosClientes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListarTodosClientes" />
+        </activity>
+        <activity
+            android:label="Cadastro"
+            android:name=".CadastrarCliente"
+            android:parentActivityName=".ListarTodosClientes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListarTodosClientes" />
+        </activity>
+        <activity
+            android:label="Consulta de Clientes"
+            android:name=".BuscarCliente"
+            android:parentActivityName=".ListarTodosClientes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListarTodosClientes" />
+        </activity>
+        <activity
+            android:label="Editar Cliente"
+            android:name=".EditarClienteConsulta"
+            android:parentActivityName=".ListarTodosClientes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListarTodosClientes" />
+        </activity>
+        <activity
+            android:name=".DeletarCliente"
+            android:parentActivityName=".ListarTodosClientes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListarTodosClientes" />
+        </activity>
+        <activity
+            android:label="Todos os Clientes"
+            android:name=".ListarTodosClientes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CadastrarCliente"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".BuscarCliente"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".EditarClienteConsulta"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".DeletarCliente"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".ListarTodosClientes"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".InformacoesClientes"></activity>
+        <activity android:label="Informações" android:name=".InformacoesClientes"></activity>
         <activity android:name=".EditarClienteDados"></activity>
         <activity android:name=".ListarBuscaClientes"></activity>
     </application>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,9 +64,17 @@ public class BuscarCliente extends AppCompatActivity {
                 dao.retornaConsulta(nome);
                 txtConsultarNome.setText("");
 
-                Intent intent = new Intent(getApplicationContext(), ListarBuscaClientes.class);
+                if (dao.retornaConsulta(nome) == null){
+                    Toast toast = Toast.makeText(
+                            getApplicationContext(),
+                            "Não existe nenhum cliente com esse nome no Banco de Dados",
+                            Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), ListarBuscaClientes.class);
                     intent.putExtra("string", nome);
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
 

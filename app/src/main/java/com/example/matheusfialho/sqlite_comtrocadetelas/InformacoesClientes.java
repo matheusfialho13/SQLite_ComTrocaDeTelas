@@ -3,12 +3,15 @@ package com.example.matheusfialho.sqlite_comtrocadetelas;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class InformacoesClientes extends AppCompatActivity {
@@ -18,6 +21,10 @@ public class InformacoesClientes extends AppCompatActivity {
     private TextView infoId;
     private Button infoEditar;
     private Button infoDeletar;
+
+    private ImageView infoFoto;
+    Bitmap raw;
+    byte[] fotoArray;
 
     private ClienteDAO dao;
     private Cliente cliente;
@@ -30,7 +37,7 @@ public class InformacoesClientes extends AppCompatActivity {
 
         cliente = (Cliente) getIntent().getExtras().getSerializable("cliente");
 
-
+        infoFoto = (ImageView) findViewById(R.id.infoFoto);
         infoNome = (TextView) findViewById(R.id.infoNome);
         infoIdade = (TextView) findViewById(R.id.infoIdade);
         infoId = (TextView) findViewById(R.id.infoId);
@@ -38,10 +45,16 @@ public class InformacoesClientes extends AppCompatActivity {
         infoEditar = (Button) findViewById(R.id.infoEditar);
         infoDeletar = (Button) findViewById(R.id.infoDeletar);
 
-
-        infoNome.setText("Nome: "+cliente.getNome());
-        infoIdade.setText("Idade: "+String.valueOf(cliente.getIdade()));
+        //Populando XML
+        infoNome.setText(cliente.getNome());
+        infoIdade.setText(String.valueOf(cliente.getIdade()));
         infoId.setText("Id: "+String.valueOf(cliente.getId()));
+
+        fotoArray = cliente.getFoto();
+        if(fotoArray!=null){
+            raw  = BitmapFactory.decodeByteArray(fotoArray,0,fotoArray.length);
+            infoFoto.setImageBitmap(raw);
+        }
 
         infoEditar.setOnClickListener(new View.OnClickListener() {
             @Override

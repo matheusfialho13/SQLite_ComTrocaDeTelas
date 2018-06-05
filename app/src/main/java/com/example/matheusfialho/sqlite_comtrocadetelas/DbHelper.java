@@ -3,6 +3,8 @@ package com.example.matheusfialho.sqlite_comtrocadetelas;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -11,11 +13,14 @@ public class DbHelper extends SQLiteOpenHelper {
     public static String _ID = "_ID";
     public static String NOME = "Nome";
     public static String IDADE = "Idade";
+    public static String FOTO = "Foto";
+    //public static byte[] FOTO = null;
     private static final int DATABASE_VERSION = 1;
     private final String CREATE_TABLE = "CREATE TABLE "+ TABELA +" ("
             +_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +NOME+" TEXT NOT NULL, "
-            +IDADE+" INTEGER NOT NULL);";
+            +IDADE+" INTEGER NOT NULL, "
+            +FOTO+" BLOB);";
 
 
     public DbHelper(Context context) {

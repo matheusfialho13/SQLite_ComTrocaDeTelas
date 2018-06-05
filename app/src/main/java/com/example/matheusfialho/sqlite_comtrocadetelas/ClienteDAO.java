@@ -35,17 +35,18 @@ public class ClienteDAO {
     }
     */
 
-    public boolean salvar(String nome, int idade){
-        return salvar(0, nome, idade);
+    public boolean salvar(String nome, int idade, byte[] foto){
+        return salvar(0, nome, idade, foto);
     }
 
-    public boolean salvar(int id, String nome, int idade){
+    public boolean salvar(int id, String nome, int idade, byte[] foto){
         boolean resultado;
         //db = gw.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
         cv.put("Nome", nome);
         cv.put("Idade", idade);
+        cv.put("Foto", foto);
         //resultado = gw.getDatabase().insert(TABLE_CLIENTES, null, cv) > -1;
 
         if(id > 0)
@@ -61,7 +62,7 @@ public class ClienteDAO {
         //Cursor cursor = gw.getDatabase().rawQuery("SELECT Nome FROM Clientes", null);
         Cursor cursor = gw.getDatabase().query(
                 "Clientes",
-                new String[]{DbHelper._ID,DbHelper.NOME,DbHelper.IDADE},
+                new String[]{DbHelper._ID,DbHelper.NOME,DbHelper.IDADE, DbHelper.FOTO},
                 null,
                 null,
                 null,
@@ -74,7 +75,8 @@ public class ClienteDAO {
                 int _id = cursor.getInt(cursor.getColumnIndex(DbHelper._ID));
                 String nome = cursor.getString(cursor.getColumnIndex(DbHelper.NOME));
                 int idade = cursor.getInt(cursor.getColumnIndex(DbHelper.IDADE));
-                listClientes.add(new Cliente(_id, nome, idade));
+                byte[] foto = cursor.getBlob(cursor.getColumnIndex(DbHelper.FOTO));
+                listClientes.add(new Cliente(_id, nome, idade, foto));
             } while (cursor.moveToNext());
             cursor.close();
         }
@@ -89,7 +91,7 @@ public class ClienteDAO {
 
         Cursor cursor = gw.getDatabase().query(
                 "Clientes",
-                new String[]{DbHelper._ID, DbHelper.NOME, DbHelper.IDADE},
+                new String[]{DbHelper._ID, DbHelper.NOME, DbHelper.IDADE, DbHelper.FOTO},
                 selection,
                 selectionArgs,
                 null,
@@ -102,7 +104,8 @@ public class ClienteDAO {
                 int _id = cursor.getInt(cursor.getColumnIndex(DbHelper._ID));
                 String nome = cursor.getString(cursor.getColumnIndex(DbHelper.NOME));
                 int idade = cursor.getInt(cursor.getColumnIndex(DbHelper.IDADE));
-                listClientes.add(new Cliente(_id, nome, idade));
+                byte[] foto = cursor.getBlob(cursor.getColumnIndex(DbHelper.FOTO));
+                listClientes.add(new Cliente(_id, nome, idade, foto));
             } while (cursor.moveToNext());
             cursor.close();
         } else if(cursor == null){
@@ -124,7 +127,7 @@ public class ClienteDAO {
 
         Cursor cursor = gw.getDatabase().query(
                 "Clientes",
-                new String[]{DbHelper._ID, DbHelper.NOME, DbHelper.IDADE},
+                new String[]{DbHelper._ID, DbHelper.NOME, DbHelper.IDADE, DbHelper.FOTO},
                 selection,
                 selectionArgs,
                 null,
@@ -137,7 +140,8 @@ public class ClienteDAO {
                 int _id = cursor.getInt(cursor.getColumnIndex(DbHelper._ID));
                 String nome = cursor.getString(cursor.getColumnIndex(DbHelper.NOME));
                 int idade = cursor.getInt(cursor.getColumnIndex(DbHelper.IDADE));
-                listClientes.add(new Cliente(_id, nome, idade));
+                byte[] foto = cursor.getBlob(cursor.getColumnIndex(DbHelper.FOTO));
+                listClientes.add(new Cliente(_id, nome, idade, foto));
             } while (cursor.moveToNext());
             cursor.close();
         } else if(cursor == null){
