@@ -14,11 +14,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class InformacoesClientes extends AppCompatActivity {
 
     private TextView infoNome;
     private TextView infoIdade;
     private TextView infoId;
+    private TextView infoCel;
     private Button infoEditar;
     private Button infoDeletar;
 
@@ -41,6 +44,7 @@ public class InformacoesClientes extends AppCompatActivity {
         infoNome = (TextView) findViewById(R.id.infoNome);
         infoIdade = (TextView) findViewById(R.id.infoIdade);
         infoId = (TextView) findViewById(R.id.infoId);
+        infoCel = (TextView) findViewById(R.id.infoCel);
 
         infoEditar = (Button) findViewById(R.id.infoEditar);
         infoDeletar = (Button) findViewById(R.id.infoDeletar);
@@ -49,6 +53,7 @@ public class InformacoesClientes extends AppCompatActivity {
         infoNome.setText(cliente.getNome());
         infoIdade.setText(String.valueOf(cliente.getIdade()));
         infoId.setText("Id: "+String.valueOf(cliente.getId()));
+        infoCel.setText(cliente.getCel());
 
         fotoArray = cliente.getFoto();
         if(fotoArray!=null){

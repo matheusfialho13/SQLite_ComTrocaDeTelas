@@ -27,6 +27,7 @@ public class EditarClienteDados extends AppCompatActivity {
 
     EditText txtNomeAtualize;
     EditText txtIdadeAtualize;
+    EditText txtCelAtualize;
     Button butSalvarAtualize;
     Button butVoltarAtualize;
     ImageView imageViewEdit;
@@ -44,6 +45,7 @@ public class EditarClienteDados extends AppCompatActivity {
 
         txtNomeAtualize = (EditText) findViewById(R.id.txtNomeAtualize);
         txtIdadeAtualize = (EditText) findViewById(R.id.txtIdadeAtualize);
+        txtCelAtualize = (EditText) findViewById(R.id.txtCelAtualize);
         butSalvarAtualize = (Button) findViewById(R.id.butSalvarAtualize);
         butVoltarAtualize = (Button) findViewById(R.id.butVoltarAtualize);
         imageViewEdit = (ImageView) findViewById(R.id.imageViewEdit);
@@ -56,6 +58,7 @@ public class EditarClienteDados extends AppCompatActivity {
 
         txtNomeAtualize.setText(cliente.getNome());
         txtIdadeAtualize.setText(String.valueOf(cliente.getIdade()));
+        txtCelAtualize.setText(cliente.getCel());
         setarImagem(cliente.getFoto(), imageViewEdit);
 
         clienteList = new ArrayList<>();
@@ -75,6 +78,7 @@ public class EditarClienteDados extends AppCompatActivity {
                 int id = clienteList.get(0).getId();
                 String novoNome = txtNomeAtualize.getText().toString();
                 int novaIdade = Integer.parseInt(String.valueOf(txtIdadeAtualize.getText()));
+                String novoCel = txtCelAtualize.getText().toString();
 
                 // Vinculando imagem
                 imageViewEdit.buildDrawingCache();
@@ -85,7 +89,7 @@ public class EditarClienteDados extends AppCompatActivity {
                 byte[] novaFoto = saida.toByteArray();
 
                 dao = new ClienteDAO(getBaseContext());
-                boolean sucesso = dao.salvar(id, novoNome, novaIdade, novaFoto);
+                boolean sucesso = dao.salvar(id, novoNome, novaIdade, novoCel, novaFoto);
                 if (sucesso) {
                     limpaDados();
 
@@ -151,6 +155,7 @@ public class EditarClienteDados extends AppCompatActivity {
     private void limpaDados(){
         txtIdadeAtualize.setText("");
         txtNomeAtualize.setText("");
+        txtCelAtualize.setText("");
     }
 
     @Override

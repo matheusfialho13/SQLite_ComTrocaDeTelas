@@ -41,7 +41,11 @@ public class AdapterPersonalizado extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return clientes.size();
+        if(clientes != null){
+            return clientes.size();
+        }else{
+            return 0;
+        }
     }
 
     @Override
@@ -62,6 +66,7 @@ public class AdapterPersonalizado extends BaseAdapter {
         ImageView foto;
         TextView nome;
         TextView idade;
+        TextView cel;
 
 
         @SuppressLint("ViewHolder")
@@ -74,10 +79,12 @@ public class AdapterPersonalizado extends BaseAdapter {
         nome  = (TextView) view.findViewById(R.id.lista_clientes_personalizada_nome);
         idade = (TextView) view.findViewById(R.id.lista_clientes_personalizada_idade);
         foto  = (ImageView) view.findViewById(R.id.lista_clientes_personalizada_imagem);
+        cel   = (TextView) view.findViewById(R.id.lista_clientes_personalizada_cel);
 
         //populando as Views
         nome.setText(cliente.getNome());
         idade.setText(String.valueOf(cliente.getIdade())+" Anos");
+        cel.setText(String.valueOf(cliente.getCel()));
         fotoArray = cliente.getFoto();
 
         if(fotoArray!=null){

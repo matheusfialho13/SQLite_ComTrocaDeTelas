@@ -31,6 +31,9 @@ public class TratamentoImagem extends AppCompatActivity {
 
     }
 
+    /*
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -130,6 +133,7 @@ public class TratamentoImagem extends AppCompatActivity {
         intent.setType("image/*");
         startActivityForResult(intent, 2);
     }
+    */
 }
 
 

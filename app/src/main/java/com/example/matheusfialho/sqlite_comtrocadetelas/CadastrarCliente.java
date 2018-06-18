@@ -34,6 +34,7 @@ public class CadastrarCliente extends AppCompatActivity {
     /*COMPONENTES DA TELA*/
     EditText txtNome;
     EditText txtIdade;
+    EditText txtCel;
     Button butCadastrar;
     ImageView imageView;
     ImageButton imageButton;
@@ -48,12 +49,13 @@ public class CadastrarCliente extends AppCompatActivity {
         //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
         txtNome = (EditText) findViewById(R.id.txtNome);
         txtIdade = (EditText) findViewById(R.id.txtIdade);
+        txtCel = (EditText) findViewById(R.id.txtCel);
         butCadastrar = (Button) findViewById(R.id.butCadastrar);
         imageView = (ImageView) findViewById(R.id.imageViewCads);
         imageButton = (ImageButton) findViewById(R.id.imageButton);
 
 
-        //CRIA EVENTO DO BOTÃO CADASTRAR
+        //CRIA EVENTO PARA BUSCAR IMAGEM NA GALERIA
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +71,7 @@ public class CadastrarCliente extends AppCompatActivity {
 
             }
         });
-
+        //CRIA EVENTO DO BOTÃO CADASTRAR
         butCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,6 +81,7 @@ public class CadastrarCliente extends AppCompatActivity {
                 //pegando os valores
                 String nome = txtNome.getText().toString();
                 int idade = Integer.parseInt(txtIdade.getText().toString());
+                String cel = txtCel.getText().toString();
 
 
                 // Vinculando imagem
@@ -91,11 +94,12 @@ public class CadastrarCliente extends AppCompatActivity {
 
                 //salvando os dados
                 dao = new ClienteDAO(getBaseContext());
-                boolean sucesso = dao.salvar(nome, idade, foto);
+                boolean sucesso = dao.salvar(nome, idade, cel, foto);
                 if(sucesso) {
                     limpaDados();
                     Snackbar.make(view, "Salvou!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                    onBackPressed();
                 }else{
                     Snackbar.make(view, "Erro ao salvar, consulte os logs!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
@@ -128,6 +132,7 @@ public class CadastrarCliente extends AppCompatActivity {
     private void limpaDados(){
         txtNome.setText("");
         txtIdade.setText("");
+        txtCel.setText("");
         imageView.setImageResource(android.R.drawable.ic_menu_report_image);
     }
 

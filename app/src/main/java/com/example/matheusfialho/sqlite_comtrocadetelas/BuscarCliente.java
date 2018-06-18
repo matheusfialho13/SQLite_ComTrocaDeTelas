@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ public class BuscarCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_buscar_cliente);
-
 
         //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
         txtConsultarNome = (EditText) findViewById(R.id.txtConsultarNome);

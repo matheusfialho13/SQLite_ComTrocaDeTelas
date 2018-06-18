@@ -13,14 +13,17 @@ public class DbHelper extends SQLiteOpenHelper {
     public static String _ID = "_ID";
     public static String NOME = "Nome";
     public static String IDADE = "Idade";
+    public static String CELL = "Cell";
     public static String FOTO = "Foto";
-    //public static byte[] FOTO = null;
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 8;
     private final String CREATE_TABLE = "CREATE TABLE "+ TABELA +" ("
             +_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +NOME+" TEXT NOT NULL, "
-            +IDADE+" INTEGER NOT NULL, "
-            +FOTO+" BLOB);";
+            +IDADE+" INTEGER, "
+            +CELL+" TEXT NOT NULL, "
+            +FOTO+" BLOB)";
+
+    //private final String DROP_TABLE = "DROP TABLE "+TABELA;
 
 
     public DbHelper(Context context) {
@@ -28,12 +31,12 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE);
-    }
+    public void onCreate(SQLiteDatabase db) { db.execSQL(CREATE_TABLE); }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABELA);
+        // Creating tables again
+        onCreate(db);
     }
 }
