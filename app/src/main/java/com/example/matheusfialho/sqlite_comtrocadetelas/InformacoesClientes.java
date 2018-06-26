@@ -49,11 +49,18 @@ public class InformacoesClientes extends AppCompatActivity {
         infoEditar = (Button) findViewById(R.id.infoEditar);
         infoDeletar = (Button) findViewById(R.id.infoDeletar);
 
+        //Colocando no formato (xx) xxxxx-xxxx
+        String celular = cliente.getCel();
+        if(celular.length() == 11)
+            celular = "(" + celular.substring(0, 2) + ") " + celular.substring(2, 3)+ " " +celular.substring(3, 7) + "-" + celular.substring(7);
+        else if(celular.length() == 10){
+            celular = "(" + celular.substring(0, 2) + ") " + celular.substring(2, 6) + "-" + celular.substring(6);
+        }
         //Populando XML
         infoNome.setText(cliente.getNome());
         infoIdade.setText(String.valueOf(cliente.getIdade()));
         infoId.setText("Id: "+String.valueOf(cliente.getId()));
-        infoCel.setText(cliente.getCel());
+        infoCel.setText(celular);
 
         fotoArray = cliente.getFoto();
         if(fotoArray!=null){

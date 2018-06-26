@@ -96,7 +96,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Digite Nº celular"
-        android:inputType="phone"
+        android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/imageViewCads"
         app:layout_constraintTop_toBottomOf="@+id/txtIdade" />
 

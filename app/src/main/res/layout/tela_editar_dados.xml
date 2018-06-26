@@ -14,7 +14,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Digite Nº celular"
-        android:inputType="phone"
+        android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/imageViewEdit"
         app:layout_constraintTop_toBottomOf="@+id/txtIdadeAtualize" />
 
@@ -69,7 +69,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Voltar"
+        android:text="Tela Inicial"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"

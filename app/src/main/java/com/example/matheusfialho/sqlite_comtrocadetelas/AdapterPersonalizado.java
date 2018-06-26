@@ -81,10 +81,17 @@ public class AdapterPersonalizado extends BaseAdapter {
         foto  = (ImageView) view.findViewById(R.id.lista_clientes_personalizada_imagem);
         cel   = (TextView) view.findViewById(R.id.lista_clientes_personalizada_cel);
 
+        String celular = cliente.getCel();
+        if(celular.length() == 11)
+            celular = "(" + celular.substring(0, 2) + ") " + celular.substring(2, 3)+ " " +celular.substring(3, 7) + "-" + celular.substring(7);
+        else if(celular.length() == 10){
+            celular = "(" + celular.substring(0, 2) + ") " + celular.substring(2, 6) + "-" + celular.substring(6);
+        }
+
         //populando as Views
         nome.setText(cliente.getNome());
         idade.setText(String.valueOf(cliente.getIdade())+" Anos");
-        cel.setText(String.valueOf(cliente.getCel()));
+        cel.setText(celular);
         fotoArray = cliente.getFoto();
 
         if(fotoArray!=null){
